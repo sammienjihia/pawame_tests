@@ -52,6 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'pawame.middleware.custom_cache_middleware.CustomCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'pawame.urls'
