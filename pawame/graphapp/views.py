@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 import random
 from django.http import JsonResponse
 import json
-from asgiref.sync import async_to_sync
+#from asgiref.sync import async_to_sync
 
 # Create your views here.
 
@@ -34,12 +34,16 @@ class GraphDataView(APIView):
         }
         serializer = GraphDataSerializer(message)
         data = {"status":1, "message":serializer.data}
-        async_to_sync(channel_layer.group_send)("chat", {"type": "chat.force_disconnect"})
         return Response(data, status.HTTP_200_OK)
 
 
     # def post(self,request):
-
+class RandomNumberGen(APIView):
+    def get(self, request):
+        data = {
+            "randomInt": random.randint(1,10)
+        }
+        return Response(data, status.HTTP_200_OK)
 
 
 
