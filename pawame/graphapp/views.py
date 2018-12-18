@@ -43,6 +43,8 @@ class RandomNumberGen(APIView):
         data = {
             "randomInt": random.randint(1,10)
         }
+
+        print("******************* Seperator***********************")
         return Response(data, status.HTTP_200_OK)
 
 
